@@ -3,7 +3,10 @@ const { expressMiddleware } = require('@apollo/server/express4')
 const { typeDefs, resolvers } = require('./graphql')
 
 const express = require('express')
+const dotenv = require('dotenv')
 const app = express()
+dotenv.config()
+
 const PORT = Number(process.env.PORT) || 8000
 
 async function startServer() {
