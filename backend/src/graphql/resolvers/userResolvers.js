@@ -31,6 +31,26 @@ const userResolvers = {
             }
         },
 
+        login: async (_, { data }) => {
+            const user = await prismaClient.user.findFirst({
+                where: {
+                    OR: [{ email: data.identifier }, { phone: data.identifier }],
+                },
+            })
+
+            if (!user) {
+                throw new Error('Invalid username or password!')
+            }
+
+            const isMacth = await validateHash(data.password, user.password)
+            if (!isMacth) {
+                throw new Error('Invalid username or password!')
+            }
+
+            const token = await createToken(user.id)
+            return token
+        },
+
         updateUser: async (_, { id, data }) => {
             const user = await prismaClient.user.findFirst({
                 where: {
