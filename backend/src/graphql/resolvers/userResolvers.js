@@ -9,6 +9,16 @@ const userResolvers = {
     Mutation: {
         createUser: async (_, { data }) => {
             try {
+                const user = await prismaClient.user.findFirst({
+                    where: {
+                        OR: [{ email: data.email }, { phone: data.phone }],
+                    },
+                })
+
+                if (user) {
+                    throw new Error(`${user.email === data.email ? 'Email' : 'Phone number'} already exists!`)
+                }
+
                 return await prismaClient.user.create({
                     data: data,
                 })
@@ -18,6 +28,21 @@ const userResolvers = {
         },
 
         updateUser: async (_, { id, data }) => {
+            const user = await prismaClient.user.findFirst({
+                where: {
+                    AND: [
+                        { id: { not: id } },
+                        {
+                            OR: [{ email: data.email }, { phone: data.phone }],
+                        },
+                    ],
+                },
+            })
+
+            if (user) {
+                throw new Error(`${user.email === data.email ? 'Email' : 'Phone number'} already exists!`)
+            }
+
             return await prismaClient.user.update({
                 where: { id },
                 data: data,
