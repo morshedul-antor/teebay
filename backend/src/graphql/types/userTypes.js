@@ -7,6 +7,8 @@ const userTypeDefs = `
   type Mutation {
     createUser(data: UserIn!): UserOut
     updateUser(id: Int!, data: UserUpdate): UserOut
+
+    login(data: Login!): Token
   }
 
   input UserIn {
@@ -34,6 +36,16 @@ const userTypeDefs = `
     phone: String
     address: String
     password: String
+  }
+
+  input Login {
+    identifier: String
+    password: String
+  }
+
+  type Token {
+    type: String
+    token: String
   }
 `
 
