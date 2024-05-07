@@ -1,13 +1,31 @@
-const express = require("express");
-const app = express();
+const { ApolloServer } = require('@apollo/server')
+const { expressMiddleware } = require('@apollo/server/express4')
+const { typeDefs, resolvers } = require('./graphql')
 
-app.use(express.json());
-const PORT = Number(process.env.PORT) || 8000;
+const express = require('express')
+const app = express()
+const PORT = Number(process.env.PORT) || 8000
 
-app.get("/", (req, res) => {
-  res.send({ message: "Welcome to Teebay" });
-});
+async function startServer() {
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+    })
+    await server.start()
 
-app.listen(PORT, () => {
-  console.log(`🚀 Express Server ready at port: ${PORT}`);
-});
+    app.use(express.json())
+    app.use('/graphql', expressMiddleware(server))
+
+    app.get('/', (req, res) => {
+        res.send({ message: 'Welcome to Teebay' })
+    })
+
+    app.listen(PORT, () => {
+        console.log(`🚀 Express Server ready at port: ${PORT}`)
+        console.log(`🚀 Graphql Server ready at: ${PORT}/graphql`)
+    })
+}
+
+startServer().catch((error) => {
+    console.error('Error starting server:', error)
+})
