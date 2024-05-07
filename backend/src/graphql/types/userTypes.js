@@ -1,4 +1,6 @@
 const userTypeDefs = `
+  scalar DateTime
+
   type Query {
     users: [UserOut]
     user(id:Int!): UserOut
@@ -7,17 +9,16 @@ const userTypeDefs = `
   type Mutation {
     createUser(data: UserIn!): UserOut
     updateUser(id: Int!, data: UserUpdate): UserOut
-
     login(data: Login!): Token
   }
 
   input UserIn {
-    firstName: String
-    lastName: String
-    email: String
-    phone: String
-    address: String
-    password: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    address: String!
+    password: String!
   }
 
   input UserUpdate {
@@ -29,13 +30,13 @@ const userTypeDefs = `
   }
 
   type UserOut {
-    id: Int
     firstName: String
     lastName: String
     email: String
     phone: String
     address: String
-    password: String
+    id: Int
+    createdAt: DateTime
   }
 
   input Login {
