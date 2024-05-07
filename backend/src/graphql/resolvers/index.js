@@ -1,6 +1,12 @@
+const { userResolvers } = require('./userResolvers')
+
 const resolvers = {
     Query: {
-        greet: (_, { name }) => `Hey, ${name}`,
+        ...userResolvers.Query,
+    },
+
+    Mutation: {
+        ...userResolvers.Mutation,
     },
 }
 
