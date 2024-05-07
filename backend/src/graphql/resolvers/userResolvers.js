@@ -1,3 +1,4 @@
+const { createHash, validateHash, createToken } = require('../../utils')
 const { prismaClient } = require('../../db')
 
 const userResolvers = {
@@ -18,6 +19,9 @@ const userResolvers = {
                 if (user) {
                     throw new Error(`${user.email === data.email ? 'Email' : 'Phone number'} already exists!`)
                 }
+
+                const hashPassword = await createHash(data.password)
+                data.password = hashPassword
 
                 return await prismaClient.user.create({
                     data: data,
