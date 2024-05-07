@@ -1,7 +1,7 @@
+const { userTypeDefs } = require('./userTypes')
+
 const typeDefs = `
-    type Query {
-        greet(name:String!): String 
-    }
+    ${userTypeDefs}
 `
 
 module.exports = {
