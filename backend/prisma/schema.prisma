@@ -37,3 +37,20 @@ model Category {
   updatedAt DateTime? @updatedAt @map("updated_at")
   name String @unique
 }
+
+
+model Product {
+  @@map("products")
+
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  title String
+  description String
+  price Float
+  rentPrice Float? @map("(rent_price)")
+  rentDay String? @map("(rent_day)")
+  userId Int @map("user_id") 
+  categoryIds Int[] @map("category_ids")
+}
+
