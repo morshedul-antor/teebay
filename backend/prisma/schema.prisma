@@ -29,6 +29,8 @@ model User {
   password String
 
   products Product[] @relation("UserToProduct")
+  providerOrders Order[] @relation("ProviderToOrder")
+  recipientOrders Order[] @relation("RecipientToOrder")
 }
 
 
@@ -77,4 +79,7 @@ model Order {
   providerId Int @map("provider_id") 
   recipientId Int @map("recipient_id")
   productId Int @map("product_id")
+
+  provider User @relation("ProviderToOrder", fields: [providerId], references: [id])
+  recipient User @relation("RecipientToOrder", fields: [recipientId], references: [id])
 }
