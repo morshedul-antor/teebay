@@ -7,7 +7,7 @@ const categoryResolvers = {
     },
 
     Mutation: {
-        createCategory: async (_, { data }) => {
+        categoryCreate: async (_, { data }) => {
             try {
                 const category = await prismaClient.category.findFirst({
                     where: {
@@ -27,7 +27,7 @@ const categoryResolvers = {
             }
         },
 
-        updateCategory: async (_, { id, data }) => {
+        categoryUpdate: async (_, { id, data }) => {
             const category = await prismaClient.category.findFirst({
                 where: {
                     AND: [{ id: { not: id } }, { name: data.name }],

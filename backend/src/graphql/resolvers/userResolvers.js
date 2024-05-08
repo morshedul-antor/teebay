@@ -8,7 +8,7 @@ const userResolvers = {
     },
 
     Mutation: {
-        createUser: async (_, { data }) => {
+        userCreate: async (_, { data }) => {
             try {
                 const user = await prismaClient.user.findFirst({
                     where: {
@@ -31,7 +31,7 @@ const userResolvers = {
             }
         },
 
-        login: async (_, { data }) => {
+        userLogin: async (_, { data }) => {
             const user = await prismaClient.user.findFirst({
                 where: {
                     OR: [{ email: data.identifier }, { phone: data.identifier }],
@@ -51,7 +51,7 @@ const userResolvers = {
             return token
         },
 
-        updateUser: async (_, { id, data }) => {
+        userUpdate: async (_, { id, data }) => {
             const user = await prismaClient.user.findFirst({
                 where: {
                     AND: [
