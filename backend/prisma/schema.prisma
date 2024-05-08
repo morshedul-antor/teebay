@@ -28,8 +28,9 @@ model User {
   address String
   password String
 
-  products Product[]
+  products Product[] @relation("UserToProduct")
 }
+
 
 model Category {
   @@map("categories")
@@ -57,7 +58,6 @@ model Product {
   userId Int @map("user_id") 
   categoryIds Int[] @map("category_ids")
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation("UserToProduct", fields: [userId], references: [id])
   categories Category[] @relation("CategoryToProduct")
 }
-
