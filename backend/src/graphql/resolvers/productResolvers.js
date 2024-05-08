@@ -46,6 +46,9 @@ const productResolvers = {
         productsByUser: async (_, { userId }) => {
             const products = await prismaClient.product.findMany({
                 where: { userId },
+                include: {
+                    user: true,
+                },
             })
 
             for (const product of products) {
