@@ -42,6 +42,25 @@ const productResolvers = {
 
             return product
         },
+
+        productsByUser: async (_, { userId }) => {
+            const products = await prismaClient.product.findMany({
+                where: { userId },
+            })
+
+            for (const product of products) {
+                const categories = await prismaClient.category.findMany({
+                    where: {
+                        id: {
+                            in: product.categoryIds,
+                        },
+                    },
+                })
+                product.categories = categories
+            }
+
+            return products
+        },
     },
 
     Mutation: {
