@@ -27,6 +27,8 @@ model User {
   phone String @unique
   address String
   password String
+
+  products Product[]
 }
 
 model Category {
@@ -52,5 +54,7 @@ model Product {
   rentDay String? @map("(rent_day)")
   userId Int @map("user_id") 
   categoryIds Int[] @map("category_ids")
+
+  user User @relation(fields: [userId], references: [id])
 }
 
