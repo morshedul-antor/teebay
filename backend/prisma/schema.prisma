@@ -38,6 +38,8 @@ model Category {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
   name String @unique
+
+  products Product[] @relation("CategoryToProduct")
 }
 
 
@@ -56,5 +58,6 @@ model Product {
   categoryIds Int[] @map("category_ids")
 
   user User @relation(fields: [userId], references: [id])
+  categories Category[] @relation("CategoryToProduct")
 }
 
