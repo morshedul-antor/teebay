@@ -7,8 +7,8 @@ const categoryTypeDefs = `
     }
 
     type Mutation {
-        createCategory(data: CategoryIn!): CategoryOut
-        updateCategory(id: Int!, data: CategoryUpdate): CategoryOut 
+        categoryCreate(data: CategoryIn!): CategoryOut
+        categoryUpdate(id: Int!, data: CategoryUpdate): CategoryOut 
     }
 
     input CategoryIn {

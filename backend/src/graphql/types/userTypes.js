@@ -7,9 +7,9 @@ const userTypeDefs = `
     }
 
     type Mutation {
-        createUser(data: UserIn!): UserOut
-        updateUser(id: Int!, data: UserUpdate): UserOut
-        login(data: Login!): Token
+        userCreate(data: UserIn!): UserOut
+        userUpdate(id: Int!, data: UserUpdate): UserOut
+        userLogin(data: Login!): Token
     }
 
     input UserIn {
