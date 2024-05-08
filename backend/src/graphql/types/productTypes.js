@@ -4,7 +4,7 @@ const productTypeDefs = `
     type Query {
         products: [ProductWithUserAndCategory]
         product(id: Int!): ProductWithUserAndCategory
-        productsByUser(userId: Int!): [ProductWithCategory]
+        productsByUser(userId: Int!): [ProductWithUserAndCategory]
     }
 
     type Mutation {
@@ -39,17 +39,6 @@ const productTypeDefs = `
         rentDay: String
         id: Int
         createdAt: DateTime
-    }
-
-    type ProductWithCategory {
-        title: String
-        description: String
-        price: Float
-        rentPrice: Float
-        rentDay: String
-        id: Int
-        createdAt: DateTime
-        categories: [Category]
     }
 
     type ProductWithUserAndCategory {
