@@ -61,3 +61,20 @@ model Product {
   user User @relation("UserToProduct", fields: [userId], references: [id])
   categories Category[] @relation("CategoryToProduct")
 }
+
+
+model Order {
+  @@map("orders")
+
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  orderType String @map("order_type")
+  totalAmount Float @map("total_amount")
+  periodStart DateTime? @map("(period_start)")
+  periodEnd DateTime? @map("(period_end)")
+  remarks String? 
+  providerId Int @map("provider_id") 
+  recipientId Int @map("recipient_id")
+  productId Int @map("product_id")
+}
