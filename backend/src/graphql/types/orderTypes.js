@@ -3,7 +3,7 @@ const orderTypeDefs = `
 
     type Query {
         orders: [OrderOut]
-        order(id: Int!): OrderOut
+        ordersByUser(userId: Int!, type: OrderFilterType!): [OrderOut]
     }
 
     type Mutation {
@@ -11,7 +11,7 @@ const orderTypeDefs = `
     }
 
     input OrderIn {
-        orderType: String!
+        orderType: OrderType!
         totalAmount: Float!
         periodStart: DateTime
         periodEnd: DateTime
@@ -48,6 +48,20 @@ const orderTypeDefs = `
     type Category {
         name: String
         id: Int
+    }
+
+    enum OrderType {
+        trade
+        loan
+        borrow
+    }
+
+    enum OrderFilterType {
+        sold
+        bought
+        lent
+        rent
+        borrowed
     }
 `
 
