@@ -1,10 +1,17 @@
-const { createHash, validateHash, createToken } = require('../../utils')
+const { createHash, validateHash, createToken, validateToken } = require('../../utils')
 const { prismaClient } = require('../../db')
 
 const userResolvers = {
     Query: {
         users: async () => await prismaClient.user.findMany(),
         user: async (_, { id }) => await prismaClient.user.findUnique({ where: { id } }),
+        userAuth: async (_, { token }) => {
+            const user = await validateToken(token)
+
+            return await prismaClient.user.findFirst({
+                where: { id: user.userId },
+            })
+        },
     },
 
     Mutation: {
