@@ -13,3 +13,13 @@ export const GET_ALL_USERS = gql`
         }
     }
 `
+
+export const USER_AUTH = gql`
+    query UserAuth($token: String!) {
+        userAuth(token: $token) {
+            id
+            firstName
+            lastName
+        }
+    }
+`
