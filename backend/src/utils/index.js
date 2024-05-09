@@ -1,8 +1,9 @@
 const { createHash, validateHash } = require('./security')
-const { createToken } = require('./token')
+const { createToken, validateToken } = require('./token')
 
 module.exports = {
     createHash,
     validateHash,
     createToken,
+    validateToken,
 }
