@@ -4,6 +4,7 @@ const userTypeDefs = `
     type Query {
         users: [UserOut]
         user(id:Int!): UserOut
+        userAuth(token: String!): UserOut
     }
 
     type Mutation {
