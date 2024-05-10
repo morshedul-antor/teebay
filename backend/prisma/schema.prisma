@@ -57,6 +57,7 @@ model Product {
   price Float
   rentPrice Float? @map("(rent_price)")
   rentDay String? @map("(rent_day)")
+  categoryName String? @map("category_name")
   userId Int @map("user_id") 
   categoryIds Int[] @map("category_ids")
 
