@@ -7,6 +7,9 @@ const productResolvers = {
                 include: {
                     user: true,
                 },
+                orderBy: {
+                    createdAt: 'desc',
+                },
             })
 
             for (const product of products) {
@@ -48,6 +51,9 @@ const productResolvers = {
                 where: { userId },
                 include: {
                     user: true,
+                },
+                orderBy: {
+                    createdAt: 'desc',
                 },
             })
 
