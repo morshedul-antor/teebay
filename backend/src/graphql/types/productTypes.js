@@ -19,8 +19,9 @@ const productTypeDefs = `
         price: Float!
         rentPrice: Float
         rentDay: String
+        categoryName: String!
         userId: Int!
-        categoryIds: [Int!]!
+        categoryIds: [Int]!
     }
 
     input ProductUpdate {
@@ -29,6 +30,7 @@ const productTypeDefs = `
         price: Float
         rentPrice: Float
         rentDay: String
+        categoryName: String
     }
 
     type Product {
@@ -37,6 +39,7 @@ const productTypeDefs = `
         price: Float
         rentPrice: Float
         rentDay: String
+        categoryName: String
         id: Int
         createdAt: DateTime
     }
@@ -47,6 +50,7 @@ const productTypeDefs = `
         price: Float
         rentPrice: Float
         rentDay: String
+        categoryName: String
         id: Int
         createdAt: DateTime
         user: User
