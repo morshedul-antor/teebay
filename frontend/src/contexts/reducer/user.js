@@ -1,18 +1,18 @@
-import { DefaultCookie, GetCookie, SetCookie } from '../storage/cookie'
+import { DefaultStorage, GetStorage, SetStorage } from '../storage/local'
 
-export const userState = DefaultCookie('user', { info: {} })
+export const userState = DefaultStorage('user', { info: {} })
 
 export const userReducer = (state, action) => {
     switch (action.type) {
         case 'get':
-            SetCookie('user', { info: state.info })
-            return GetCookie('user')
+            SetStorage('user', { info: state.info })
+            return GetStorage('user')
         case 'set':
-            SetCookie('user', { info: action.payload })
-            return GetCookie('user')
+            SetStorage('user', { info: action.payload })
+            return GetStorage('user')
         case 'remove':
-            SetCookie('user', { info: {} })
-            return GetCookie('user')
+            SetStorage('user', { info: {} })
+            return GetStorage('user')
         default:
             return state
     }
