@@ -8,6 +8,9 @@ const orderResolvers = {
                     include: {
                         product: true,
                     },
+                    orderBy: {
+                        createdAt: 'desc',
+                    },
                 })
 
                 for (const order of orders) {
@@ -31,19 +34,19 @@ const orderResolvers = {
         ordersByUser: async (_, { userId, type }) => {
             let filter = { orderType: 'trade' }
 
-            // type: sold, bought, rent, borrow and lent
-            if (type === 'sold') {
-                filter.providerId = userId
-            } else if (type === 'bought') {
+            // type: sold, bought, rent, borrowed and lent
+            if (type === 'bought') {
                 filter.recipientId = userId
-            } else if (type === 'rent' || type === 'borrow') {
+            } else if (type === 'sold') {
+                filter.providerId = userId
+            } else if (type === 'borrowed') {
                 filter = {
-                    orderType: type === 'rent' ? 'loan' : 'borrow',
+                    orderType: 'rent',
                     recipientId: userId,
                 }
             } else {
                 filter = {
-                    orderType: 'loan' || 'borrow',
+                    orderType: 'rent',
                     providerId: userId,
                 }
             }
@@ -53,6 +56,9 @@ const orderResolvers = {
                     where: filter,
                     include: {
                         product: true,
+                    },
+                    orderBy: {
+                        createdAt: 'desc',
                     },
                 })
 
