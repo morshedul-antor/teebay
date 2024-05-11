@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import bg from '../../../assets/img/hero/bg.jpg'
 import hero from '../../../assets/img/hero/hero.png'
 import classes from './Hero.module.css'
