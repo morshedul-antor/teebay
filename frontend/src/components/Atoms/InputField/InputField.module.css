@@ -1,0 +1,39 @@
+.field {
+    width: 100%;
+    position: relative;
+}
+
+.field label {
+    color: var(--dark-grey);
+    font-size: 14px;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    border: none;
+    border: 1px solid var(--dark-grey);
+    background-color: var(--white);
+    font-size: 12px;
+    margin: 6px 0;
+    padding: 12px 14px;
+    border-radius: 4px;
+    outline: none;
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border: 1px solid var(--primary);
+    transition: 200ms;
+}
+
+.field > svg {
+    position: absolute;
+    right: 10px;
+    top: 21px;
+    color: var(--grey);
+    cursor: pointer;
+}
