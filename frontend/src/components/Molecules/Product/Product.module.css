@@ -1,0 +1,78 @@
+.product {
+    display: flex;
+    gap: 20px;
+    padding: 1.5em;
+
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 4px 8px 14px var(--light-low);
+    border: 1px solid var(--light-grey);
+    margin: 30px;
+}
+
+.product > img {
+    height: 210px;
+    width: 280px;
+    object-fit: cover;
+}
+
+.product > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 90%;
+}
+
+.left > a {
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.left > a:hover {
+    text-decoration: underline;
+    color: var(--primary);
+    transition: 200ms;
+}
+
+.left > p:nth-child(2),
+.left > p:nth-child(3) {
+    color: var(--grey);
+    font-size: 15px;
+}
+
+.left > p:nth-child(4) {
+    color: var(--dark);
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+.left > p:nth-child(5) {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.right {
+    display: flex;
+    gap: 10px;
+}
+
+.right > svg:first-child {
+    color: var(--btn-success);
+    font-size: 18px;
+}
+
+.right > svg:last-child {
+    color: var(--btn-cancel);
+}
+
+.right > svg:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 200ms;
+}
