@@ -1,0 +1,16 @@
+.login > a {
+    display: block;
+    margin: 22px 0 0 40px;
+    font-size: 22;
+    font-size: 24px;
+    color: var(--primary);
+    padding-left: 2px;
+    font-weight: 600;
+    text-decoration: none;
+    position: absolute;
+}
+
+.login > a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
