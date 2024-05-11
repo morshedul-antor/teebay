@@ -7,14 +7,34 @@
 }
 
 :root {
+    --primary: #0098b2;
+    --secondary: #11b1cd;
+    --secondary-light: #d5f9ff;
+    --btn-success: #0098b3;
+    --btn-cancel: #b82e2e;
+
     --white: #ffffff;
     --dark: #333333;
     --dark-grey: #555555;
     --grey: #7987a1;
+    --light-grey: #dee2e9;
     --light: #f0f0f0;
     --light-low: #f8f8f8;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(171, 171, 171);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(151, 151, 151);
+}
+
 body {
     font-family: 'Poppins';
+    background-color: var(--light-low);
 }
