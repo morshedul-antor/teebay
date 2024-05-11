@@ -1,0 +1,72 @@
+.singleProduct {
+    padding: 3em 4em;
+    width: 80%;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 4px 8px 14px var(--light-low);
+    border: 1px solid var(--light-grey);
+    margin: 8em auto 2em;
+    display: flex;
+    gap: 8em;
+}
+
+.singleProduct > div > img {
+    height: 210px;
+    width: 280px;
+    object-fit: cover;
+}
+
+.singleProduct > div > p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.left {
+    width: 90%;
+}
+
+.left > h2 {
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.left > a:hover {
+    text-decoration: underline;
+    color: var(--primary);
+    transition: 200ms;
+}
+
+.left > p:nth-child(2),
+.left > p:nth-child(3),
+.left > p:nth-child(4) {
+    color: var(--grey);
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.left > p:nth-child(5) {
+    color: var(--dark);
+    margin: 20px 0;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.btn {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+.left > form > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
