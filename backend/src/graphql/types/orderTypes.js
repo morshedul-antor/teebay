@@ -40,6 +40,7 @@ const orderTypeDefs = `
         price: Float
         rentPrice: Float
         rentDay: String
+        categoryName: String
         id: Int
         createdAt: DateTime
         categories: [Category]
@@ -52,16 +53,14 @@ const orderTypeDefs = `
 
     enum OrderType {
         trade
-        loan
-        borrow
+        rent
     }
 
     enum OrderFilterType {
-        sold
         bought
-        lent
-        rent
+        sold
         borrowed
+        lent
     }
 `
 
