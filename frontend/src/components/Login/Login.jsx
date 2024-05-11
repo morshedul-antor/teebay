@@ -1,12 +1,22 @@
 import { useMutation } from '@apollo/client'
 import { mutatations } from '../../graphql'
 import { useForm } from 'react-hook-form'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Auth } from '../../contexts/context'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Card } from '../Molecules'
+import { Button, InputField, ErrorMessage } from '../Atoms'
+import classes from './Login.module.css'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 export default function Login() {
-    const { register, handleSubmit } = useForm()
+    const [isOpen, setIsOpen] = useState(false)
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
     const [userLogin, { data, error }] = useMutation(mutatations.userMutations.USER_LOGIN)
 
     const handleOnSubmit = (formData) => {
@@ -31,22 +41,48 @@ export default function Login() {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className={classes.login}>
+            <Link to="/">Teebay</Link>
 
-            <form onSubmit={handleSubmit(handleOnSubmit)}>
-                <label>Username</label>
-                <input type="text" {...register('identifier')} />
-                <br />
+            <Card width="26%">
+                <h2>Sign In </h2>
+                <form onSubmit={handleSubmit(handleOnSubmit)}>
+                    <InputField>
+                        <input
+                            type="text"
+                            {...register('identifier', {
+                                required: true,
+                            })}
+                            placeholder="Enter email or phone"
+                        />
+                        {errors.identifier && <ErrorMessage marginTop="-8px" />}
+                    </InputField>
 
-                <label>Password</label>
-                <input type="text" {...register('password')} />
-                <br />
+                    <InputField>
+                        <input
+                            type={isOpen ? 'text' : 'password'}
+                            {...register('password', {
+                                required: true,
+                            })}
+                            placeholder="Enter password"
+                        />
+                        {isOpen ? (
+                            <FaEye onClick={() => setIsOpen(false)} />
+                        ) : (
+                            <FaEyeSlash onClick={() => setIsOpen(true)} />
+                        )}
 
-                <button>Login</button>
-            </form>
+                        {errors.password && <ErrorMessage marginTop="-8px" />}
+                    </InputField>
 
-            {error && <div>{error.message}</div>}
+                    <Button title="LOGIN" />
+                </form>
+
+                <p>
+                    Don`t have an account? <Link to="/register">Signup</Link>
+                </p>
+                {error && <ErrorMessage message={error.message} />}
+            </Card>
         </div>
     )
 }
