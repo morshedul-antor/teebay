@@ -8,3 +8,17 @@ export const USER_LOGIN = gql`
         }
     }
 `
+
+export const USER_SIGNUP = gql`
+    mutation UserCreate($data: UserIn!) {
+        userCreate(data: $data) {
+            firstName
+            lastName
+            email
+            phone
+            address
+            id
+            createdAt
+        }
+    }
+`
