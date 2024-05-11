@@ -1,0 +1,31 @@
+.dash {
+    width: 90%;
+    margin: 4em auto 2em;
+    padding: 2em 0;
+}
+
+.tab {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.tab > p {
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    text-transform: capitalize;
+}
+
+.tab > p:hover {
+    background-color: var(--light);
+    cursor: pointer;
+}
+
+.tab > .active {
+    border-bottom: 4px solid var(--secondary);
+}
+
+.tab > .active:hover {
+    background-color: transparent;
+}
