@@ -1,0 +1,12 @@
+.product {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 4em;
+}
+
+.product > p {
+    text-align: center;
+    font-size: 30px;
+    color: var(--secondary);
+    font-weight: 600;
+}
