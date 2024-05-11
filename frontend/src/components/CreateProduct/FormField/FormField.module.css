@@ -1,0 +1,36 @@
+.btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 3em;
+    margin-top: -20px;
+    width: 100%;
+}
+
+.btn > p {
+    border: none;
+    display: block;
+    margin-top: 16px;
+    padding: 9px 16px;
+    font-weight: 500;
+    color: var(--white);
+    border-radius: 4px;
+    background-color: var(--btn-cancel);
+}
+
+.btn > p:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.label {
+    display: block;
+    margin-top: 10px;
+    visibility: hidden;
+}
