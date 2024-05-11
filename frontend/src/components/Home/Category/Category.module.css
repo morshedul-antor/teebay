@@ -1,0 +1,52 @@
+.category {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 4em;
+}
+
+.category > p {
+    text-align: center;
+    font-size: 30px;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.wrapper {
+    margin-top: 7em;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+.box {
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: 300ms;
+}
+
+.box:hover {
+    box-shadow: 2px 4px 6px var(--green-low);
+    transform: translateY(-10px);
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.box img {
+    text-align: center;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -5em;
+    opacity: 0.8;
+}
+
+.box > span {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--secondary);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
