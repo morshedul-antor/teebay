@@ -1,0 +1,36 @@
+.popup,
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    left: 0;
+    top: 0;
+}
+
+.overlay {
+    background: rgb(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* width: 26em; */
+    padding: 40px 40px 32px;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px var(--light);
+    background: var(--white);
+    border-radius: 10px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.container > div {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
