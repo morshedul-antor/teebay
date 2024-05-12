@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Card } from '../Molecules'
 import { Button, InputField, ErrorMessage } from '../Atoms'
 import { useForm } from 'react-hook-form'
@@ -11,8 +11,14 @@ import { useState } from 'react'
 export default function Register() {
     const [isOpen, setIsOpen] = useState(false)
 
+    const navigate = useNavigate()
+
     const { register, handleSubmit } = useForm()
-    const [userRegister, { error }] = useMutation(mutatations.userMutations.USER_SIGNUP)
+    const [userRegister, { error }] = useMutation(mutatations.userMutations.USER_SIGNUP, {
+        onCompleted: () => {
+            navigate('/login')
+        },
+    })
 
     const handleOnSubmit = (formData) => {
         const { password, confirmPassword, ...data } = formData
