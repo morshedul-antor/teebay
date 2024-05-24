@@ -1,0 +1,42 @@
+# Ignore node_modules except this folder
+node_modules
+!node_modules/.prisma
+
+# Ignore development environment files
+.env.local
+.env.*.local
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore yarn integrity file
+.yarn-integrity
+
+# Ignore Docker context files
+.dockerignore
+.dockerignore~
+
+# Ignore Docker image context files
+.dockerignore
+
+# Ignore git related files
+.git
+.gitignore
+
+# Ignore editor files
+.vscode/
+.idea/
+
+# Ignore testing and CI files
+coverage
+.nyc_output
+*.log
+
+# Ignore dependencies folder
+__pycache__/
+.idea/
+*.sqlite
+.db
