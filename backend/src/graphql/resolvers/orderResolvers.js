@@ -34,7 +34,7 @@ const orderResolvers = {
         ordersByUser: async (_, { userId, type }) => {
             let filter = { orderType: 'trade' }
 
-            // type: sold, bought, rent, borrowed and lent
+            // type: bought, sold, borrowed and lent
             if (type === 'bought') {
                 filter.recipientId = userId
             } else if (type === 'sold') {
