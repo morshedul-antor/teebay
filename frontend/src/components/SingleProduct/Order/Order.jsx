@@ -26,7 +26,7 @@ export default function Order({ setIsOpen, data }) {
 
     const handleOder = () => {
         if (data?.product?.user?.id === user.id) {
-            alert('You can buy this product! as this your product')
+            alert('You can`t buy your own product!')
         } else {
             orderData({
                 variables: {

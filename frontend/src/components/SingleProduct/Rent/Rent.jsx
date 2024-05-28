@@ -34,7 +34,7 @@ export default function Rent({ setIsOpen, data }) {
 
     const handleRent = (formData) => {
         if (data?.product?.user?.id === user.id) {
-            alert('You can rent this product! as this your product')
+            alert('You can`t rent your own product!')
         } else {
             const { periodStart, periodEnd } = formData
             const days = calculateDays(periodStart, periodEnd)
