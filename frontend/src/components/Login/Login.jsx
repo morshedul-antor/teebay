@@ -36,9 +36,12 @@ export default function Login() {
     }, [data])
 
     const navigate = useNavigate()
-    if (stateAuth.auth) {
-        navigate('/dashboard')
-    }
+    useEffect(() => {
+        if (stateAuth.auth) {
+            navigate('/dashboard')
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [stateAuth])
 
     return (
         <div className={classes.login}>
